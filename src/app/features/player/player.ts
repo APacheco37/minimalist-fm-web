@@ -3,4 +3,6 @@ export class Player {
   FirstName: string;
   LastName: string;
   Age: number;
+  Skill: number;
+  Position: string;
 }
