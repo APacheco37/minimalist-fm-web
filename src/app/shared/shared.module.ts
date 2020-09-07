@@ -11,11 +11,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     RouterModule,
+    MaterialModule,
   ],
   exports: [
-    MaterialModule,
     SidebarComponent,
   ]
 })
