@@ -1,4 +1,4 @@
-<div class="player-details">
+<div *ngIf="player" class="player-details">
   <h1>{{ player.FirstName }} {{ player.LastName }}</h1>
   
   <p>Age: {{ player.Age }}</p>
@@ -6,4 +6,6 @@
   <p>Position: {{ player.Position }}</p>
   
   <p>Skill: {{ player.Skill }}</p>
+
+  <a routerLink="/players">Back to list</a>
 </div>
