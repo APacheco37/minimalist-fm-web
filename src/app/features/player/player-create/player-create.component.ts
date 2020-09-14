@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
-import { Position } from '../player';
+import { Position, Player } from '../player';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-player-create',
@@ -9,11 +11,39 @@ import { Position } from '../player';
 })
 export class PlayerCreateComponent implements OnInit {
 
-  positionOptions: Position;
+  positionOptions: Position[] = [];
+  playerForm = this.fb.group({
+    firstName: [''],
+    lastName: [''],
+    age: [''],
+    skill: [''],
+    position: [''],
+  });
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private playerService: PlayerService,
+  ) { }
 
   ngOnInit(): void {
+    this.initializePositionOptions();
+  }
+
+  private initializePositionOptions(): void {
+    for (const position of Object.keys(Position)) {
+      this.positionOptions.push(Position[position]);
+    }
+  }
+
+  onSubmit(): void {
+    const player: Player = {
+      FirstName: this.playerForm.controls.firstName.value,
+      LastName: this.playerForm.controls.lastName.value,
+      Age: this.playerForm.controls.age.value,
+      Skill: this.playerForm.controls.skill.value,
+      Position: this.playerForm.controls.position.value,
+    };
+    this.playerService.addPlayer(player);
   }
 
 }

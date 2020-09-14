@@ -12,7 +12,7 @@ export enum Position {
 }
 
 export class Player {
-  Id: number;
+  Id?: number;
   FirstName: string;
   LastName: string;
   Age: number;

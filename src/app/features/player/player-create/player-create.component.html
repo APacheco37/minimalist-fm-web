@@ -1,36 +1,44 @@
-<form class="create-player-form">
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()" class="create-player-form">
+  
   <p>
     <mat-form-field>
       <mat-label>First Name</mat-label>
-      <input matInput>
+      <input matInput formControlName="firstName" required>
     </mat-form-field>
   </p>
+  
   <p>
     <mat-form-field>
       <mat-label>Last Name</mat-label>
-      <input matInput>
+      <input matInput formControlName="lastName" required>
     </mat-form-field>
   </p>
+  
   <p>
     <mat-form-field>
       <mat-label>Age</mat-label>
-      <input matInput type="number" min="15" max="40">
+      <input matInput formControlName="age" type="number" min="15" max="40">
     </mat-form-field>
   </p>
+  
   <p>
     <mat-form-field>
       <mat-label>Skill</mat-label>
-      <input matInput type="number" min="1" max="99">
+      <input matInput formControlName="skill" type="number" min="1" max="99">
     </mat-form-field>
   </p>
-  <p>
+  
+  <p *ngIf="positionOptions">
     <mat-form-field>
       <mat-label>Position</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let position of positionOptions" [value]="position.value">
-          {{position.viewValue}}
+      <mat-select formControlName="position">
+        <mat-option *ngFor="let position of positionOptions" [value]="position">
+          {{position}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </p>
+  
+  <button mat-button type="submit" [disabled]="!playerForm.valid">Submit</button>
+
 </form>

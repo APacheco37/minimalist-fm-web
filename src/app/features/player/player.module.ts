@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PlayerRoutingModule } from './player-routing.module';
 import { PlayerListComponent } from './player-list/player-list.component';
@@ -18,6 +19,7 @@ import { PlayerCreateComponent } from './player-create/player-create.component';
     CommonModule,
     PlayerRoutingModule,
     MaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [
     PlayerService,
