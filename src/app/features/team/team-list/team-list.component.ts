@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs/operators';
+
+import { Team } from '../team';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-team-list',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamListComponent implements OnInit {
 
-  constructor() { }
+  teams: Team[];
+  displayedColumns: string[] = ['Id', 'Name', 'Details', 'Delete'];
+
+  constructor(
+    private teamService: TeamService,
+  ) { }
 
   ngOnInit(): void {
+    this.getTeams();
+  }
+
+  getTeams(): void {
+    this.teamService.getTeams().subscribe(
+      teams => this.teams = teams
+    );
+  }
+
+  deleteTeam(team: Team): void {
+    this.teamService.deleteTeam(team.Id).pipe(
+      tap(() => this.getTeams()),
+    ).subscribe();
   }
 
 }
