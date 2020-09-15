@@ -3,7 +3,6 @@ import { tap } from 'rxjs/operators';
 
 import { PlayerService } from '../player.service';
 import { Player } from '../player';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-player-list',
@@ -16,7 +15,6 @@ export class PlayerListComponent implements OnInit {
   displayedColumns: string[] = ['Id', 'Last Name', 'First Name', 'Age', 'Position', 'Skill', 'Details', 'Delete'];
 
   constructor(
-    private router: Router,
     private playerService: PlayerService,
   ) { }
 
