@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 import { Position, Player } from '../player';
 import { PlayerService } from '../player.service';
@@ -22,6 +24,7 @@ export class PlayerCreateComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private playerService: PlayerService,
   ) { }
 
@@ -43,7 +46,9 @@ export class PlayerCreateComponent implements OnInit {
       Skill: this.playerForm.controls.skill.value,
       Position: this.playerForm.controls.position.value,
     };
-    this.playerService.addPlayer(player);
+    this.playerService.addPlayer(player).pipe(
+      tap(() => this.router.navigate(['/players/list'])),
+    ).subscribe();
   }
 
 }
