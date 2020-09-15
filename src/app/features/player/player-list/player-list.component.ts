@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs/operators';
 
 import { PlayerService } from '../player.service';
 import { Player } from '../player';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-player-list',
@@ -11,10 +13,11 @@ import { Player } from '../player';
 export class PlayerListComponent implements OnInit {
 
   players: Player[];
-  displayedColumns: string[] = ['Id', 'Last Name', 'First Name', 'Age', 'Position', 'Skill', 'Details'];
+  displayedColumns: string[] = ['Id', 'Last Name', 'First Name', 'Age', 'Position', 'Skill', 'Details', 'Delete'];
 
   constructor(
-    private playerService: PlayerService
+    private router: Router,
+    private playerService: PlayerService,
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,12 @@ export class PlayerListComponent implements OnInit {
     this.playerService.getPlayers().subscribe(
       players => this.players = players
     );
+  }
+
+  deletePlayer(player: Player): void {
+    this.playerService.deletePlayer(player.Id).pipe(
+      tap(() => this.getPlayers()),
+    ).subscribe();
   }
 
 }
