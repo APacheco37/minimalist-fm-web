@@ -1,1 +1,12 @@
-<p>team-create works!</p>
+<form [formGroup]="teamForm" (ngSubmit)="onSubmit()" class="create-team-form">
+  
+  <p>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+  </p>
+  
+  <button mat-button type="submit" [disabled]="!teamForm.valid">Submit</button>
+
+</form>
