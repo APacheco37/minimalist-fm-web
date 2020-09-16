@@ -1,1 +1,5 @@
-<p>team-details works!</p>
+<div *ngIf="team" class="team-details">
+  <h1>{{ team.Name }}</h1>
+
+  <a mat-button routerLink="/teams">Back to list</a>
+</div>
