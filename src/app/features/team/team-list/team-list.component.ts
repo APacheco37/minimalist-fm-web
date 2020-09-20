@@ -12,7 +12,7 @@ import { TeamService } from '../team.service';
 export class TeamListComponent implements OnInit {
 
   teams: Team[];
-  displayedColumns: string[] = ['Id', 'Name', 'Details', 'Delete'];
+  displayedColumns: string[] = ['Id', 'Name', 'Players', 'Details', 'Delete'];
 
   constructor(
     private teamService: TeamService,

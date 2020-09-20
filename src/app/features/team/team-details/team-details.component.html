@@ -1,5 +1,11 @@
 <div *ngIf="team" class="team-details">
   <h1>{{ team.Name }}</h1>
 
+  <p>Players:</p>
+
+  <mat-list>
+    <mat-list-item *ngFor="let player of team.Players">{{ player.FirstName }} {{ player.LastName }}</mat-list-item>
+  </mat-list>
+
   <a mat-button routerLink="/teams">Back to list</a>
 </div>

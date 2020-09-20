@@ -29,6 +29,7 @@ export class TeamCreateComponent implements OnInit {
   onSubmit(): void {
     const team: Team = {
       Name: this.teamForm.controls.name.value,
+      Players: null,
     };
     this.teamService.addTeam(team).pipe(
       tap(() => this.router.navigate(['/teams/list'])),
