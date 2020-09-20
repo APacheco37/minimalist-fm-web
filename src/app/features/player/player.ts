@@ -1,3 +1,5 @@
+import { Team } from '../team/team';
+
 export enum Position {
   GK = 'GK',
   DFL = 'DFL',
@@ -18,4 +20,5 @@ export class Player {
   Age: number;
   Skill: number;
   Position: Position;
+  Team: Team;
 }

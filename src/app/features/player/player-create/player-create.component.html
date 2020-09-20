@@ -38,6 +38,17 @@
       </mat-select>
     </mat-form-field>
   </p>
+
+  <p *ngIf="teamOptions">
+    <mat-form-field>
+      <mat-label>Team</mat-label>
+      <mat-select formControlName="team">
+        <mat-option *ngFor="let team of teamOptions" [value]="team.Id">
+          {{team.Name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
   
   <button mat-button type="submit" [disabled]="!playerForm.valid">Submit</button>
 

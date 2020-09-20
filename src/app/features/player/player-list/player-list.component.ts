@@ -12,7 +12,7 @@ import { Player } from '../player';
 export class PlayerListComponent implements OnInit {
 
   players: Player[];
-  displayedColumns: string[] = ['Id', 'Last Name', 'First Name', 'Age', 'Position', 'Skill', 'Details', 'Delete'];
+  displayedColumns: string[] = ['Id', 'Last Name', 'First Name', 'Age', 'Position', 'Skill', 'Team', 'Details', 'Delete'];
 
   constructor(
     private playerService: PlayerService,
