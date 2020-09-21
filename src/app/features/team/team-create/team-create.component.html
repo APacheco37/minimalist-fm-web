@@ -1,11 +1,13 @@
 <form [formGroup]="teamForm" (ngSubmit)="onSubmit()" class="create-team-form">
   
-  <p>
-    <mat-form-field>
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" required>
-    </mat-form-field>
-  </p>
+  <mat-list>
+    <mat-list-item>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>  
+    </mat-list-item>
+  </mat-list>
   
   <button mat-button type="submit" [disabled]="!teamForm.valid">Submit</button>
 
