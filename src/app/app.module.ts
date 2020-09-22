@@ -14,7 +14,7 @@ import { LoadingSpinnerModule } from './shared/loading-spinner/loading-spinner.m
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

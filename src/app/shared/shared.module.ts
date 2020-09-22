@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from './material.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ConfimationDialogComponent } from './confimation-dialog/confimation-dialog.component';
 
 @NgModule({
   declarations: [
-    SidebarComponent
+    SidebarComponent,
+    ConfimationDialogComponent
   ],
   imports: [
     CommonModule,
