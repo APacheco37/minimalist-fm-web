@@ -6,10 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
-import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './shared/material.module';
-import { LoadingSpinnerModule } from './shared/loading-spinner/loading-spinner.module';
+import { LoadingSpinnerModule } from './core/loading-spinner/loading-spinner.module';
+import { LayoutModule } from './core/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { LoadingSpinnerModule } from './shared/loading-spinner/loading-spinner.m
     AppRoutingModule,
     HttpClientModule,
     FeaturesModule,
-    SharedModule,
+    LayoutModule,
     MaterialModule,
     BrowserAnimationsModule,
     LoadingSpinnerModule,

@@ -5,7 +5,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner.component';
 import { LoadingSpinnerService } from './loading-spinner.service';
 import { LoadingSpinnerInterceptor } from './loading-spinner.interceptor';
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from '../../shared/material.module';
 
 @NgModule({
   declarations: [
