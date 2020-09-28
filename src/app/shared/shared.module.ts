@@ -5,11 +5,13 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ConfimationDialogComponent } from './confimation-dialog/confimation-dialog.component';
+import { SnackbarAlertComponent } from './snackbar-alert/snackbar-alert.component';
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    ConfimationDialogComponent
+    ConfimationDialogComponent,
+    SnackbarAlertComponent
   ],
   imports: [
     CommonModule,

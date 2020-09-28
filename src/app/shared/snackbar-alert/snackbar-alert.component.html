@@ -1,0 +1,9 @@
+<div>
+  <div>
+    <mat-icon *ngIf="data.type === 'success'">done</mat-icon>
+    <mat-icon *ngIf="data.type === 'error'">clear</mat-icon>
+  </div>
+  <div>
+    {{ data.message }}
+  </div>
+</div>
