@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { tap } from 'rxjs/operators';
 
 import { PlayerService } from '../player.service';
 import { Player } from '../player';
 import { ConfimationDialogComponent } from 'src/app/shared/confimation-dialog/confimation-dialog.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-player-list',
@@ -13,8 +15,13 @@ import { ConfimationDialogComponent } from 'src/app/shared/confimation-dialog/co
 })
 export class PlayerListComponent implements OnInit {
 
-  players: Player[];
+  dataSource: MatTableDataSource<Player>;
+  playerCount: number;
+  pageSize = 10;
+  pageSizeOptions: number[] = [10, 25, 50];
   displayedColumns: string[] = ['Id', 'Last Name', 'First Name', 'Age', 'Position', 'Skill', 'Team', 'Details', 'Delete'];
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     public dialog: MatDialog,
@@ -27,7 +34,7 @@ export class PlayerListComponent implements OnInit {
 
   getPlayers(): void {
     this.playerService.getPlayers().subscribe(
-      players => this.players = players
+      players => this.dataSource = new MatTableDataSource(players)
     );
   }
 
